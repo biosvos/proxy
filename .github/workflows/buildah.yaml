@@ -32,14 +32,12 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         base-image: scratch
-        image: ghcr.io/${{ github.actor }}/markadr
+        image: ghcr.io/${{ github.actor }}/proxy
         tags: ${{ steps.branch-name.outputs.current_branch }}
-        envs: |
-          ASSET_PATH=/srv/app
         content: |
-          markadr
-        entrypoint: /markadr
-        port: 8123
+          proxy
+        entrypoint: /proxy
+        port: 8787
     - 
       name: Push To Registry
       uses: redhat-actions/push-to-registry@v2.7
