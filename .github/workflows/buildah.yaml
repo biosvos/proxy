@@ -32,7 +32,7 @@ jobs:
       uses: redhat-actions/buildah-build@v2
       with:
         base-image: scratch
-        image: ghcr.io/${{ github.actor }}/proxy
+        image: ${{ github.actor }}/proxy
         tags: ${{ steps.branch-name.outputs.current_branch }}
         content: |
           proxy
